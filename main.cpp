@@ -14,7 +14,7 @@ Matrix<T> inversed(const Matrix<T>& m) {
             size_t y = 0;
 
             for (size_t k = 0; k < m.get_rows(); k++) {
-                for (size_t l = 0; l < m.get_rows(); l++) {
+                for (size_t l = 0; l < m.get_columns(); l++) {
                     if (k != i && l != j) {
                         a(y+1, x+1) = m(k+1, l+1);
                         if (x == a.get_rows() - 1) {
