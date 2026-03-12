@@ -392,13 +392,13 @@ bool Matrix<std::complex<double>>::is_equal_(std::complex<double> a, std::comple
 
 template <>
 int Matrix<int>::random_(int min, int max) const {
-    return (random_int_() % (max - min + 1)) + min; // берет остаток от деления, чтобы получить число от 0 до max
+    return (random_int_() % (max - min + 1)) + min;
 }
 
 template <>
 float Matrix<float>::random_(float min, float max) const {
-    std::uniform_real_distribution<float> dist(min, max); //  создает распределение, которое генерирует случайные числа в диапазоне [min, max]
-    return dist(random_int_); // возвращает случайное число из этого распределения
+    std::uniform_real_distribution<float> dist(min, max);
+    return dist(random_int_); 
 }
 
 template <>
@@ -409,9 +409,9 @@ double Matrix<double>::random_(double min, double max) const {
 
 template <>
 std::complex<float> Matrix<std::complex<float>>::random_(std::complex<float> min, std::complex<float> max) const {
-    std::uniform_real_distribution<float> real_dist(min.real(), max.real()); // случайное число из этого распределения
-    std::uniform_real_distribution<float> imag_dist(min.imag(), max.imag()); // создает распределение для мнимой части
-    return std::complex<float>(real_dist(random_int_), imag_dist(random_int_)); // оздает комплексное число из двух вещественных Генерирует случайное комплексное число в прямоугольной области на комплексной плоскости
+    std::uniform_real_distribution<float> real_dist(min.real(), max.real()); 
+    std::uniform_real_distribution<float> imag_dist(min.imag(), max.imag()); 
+    return std::complex<float>(real_dist(random_int_), imag_dist(random_int_)); 
 }
 
 template <>
